@@ -21,8 +21,8 @@ class Scene {
   std::shared_ptr<EntityManager> entityManager;
 
   public:
-  Scene() {
-    this->window = std::make_shared<sf::RenderWindow>(sf::VideoMode(600, 400), "");
+  Scene(std::shared_ptr<sf::RenderWindow> window) {
+    this->window = window;
     this->entityManager = std::make_shared<EntityManager>();
   }
 
