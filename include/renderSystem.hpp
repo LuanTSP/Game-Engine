@@ -4,24 +4,27 @@
 #include "entityManager.hpp"
 
 class RenderSystem : public System {
-  private:
-  EntityManager* entityManager;
-  sf::RenderWindow* window;
-
   public:
-  void Init() override {
-    Log::info("Render system inited with success!");
-  }
+  using System::System;
 
-  void Update() override {
+  void update() override {
+    // Get all sprites
     auto& sprites = entityManager->getAllComponents<SpriteComponent>();
 
     for (auto& [id, spriteComp] : sprites) {
+      // Draw with right position if positions component exists
+      auto pos = this->entityManager->getComponent<PositionComponent>(id);
+      if (pos) {
+        spriteComp->sprite.setPosition(pos->x, pos->y);
+      }
+
+      // Draw with right rotation if angle component exists
+      auto ang = this->entityManager->getComponent<AngleComponent>(id);
+      if (ang) {
+        spriteComp->sprite.setRotation(ang->angle);
+      }
+
       this->window->draw(spriteComp->sprite);
     }
-  }
-
-  void End() override {
-    Log::info("Render system ended with success!");
   }
 };
