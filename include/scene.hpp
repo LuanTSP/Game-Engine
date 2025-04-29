@@ -11,9 +11,12 @@
  */
 class Scene {
   private:
-  sf::RenderWindow* _window;   ///< Pointer to the SFML RenderWindow where the scene is drawn.
-  EntityManager _entityManager; ///< Manages all entities and components in the scene.
-  bool _isRunning = true;      ///< Indicates whether the scene is active and running.
+  sf::RenderWindow* window;       // Pointer to the SFML RenderWindow where the scene is drawn.
+  bool running = true;                    // Indicates whether the scene is active and running.
+  /* TODO: ADD SUPPORT FOR ADDING AND RUNNING SYSTEMS */
+
+  public:
+  EntityManager* entityManager;   // Manages all entities and components in the scene.
 
   public:
   /**
@@ -23,7 +26,10 @@ class Scene {
    * 
    * @param window Pointer to the SFML RenderWindow where the scene will render its contents.
    */
-  Scene(sf::RenderWindow* window) : _window(window) {}
+  Scene(sf::RenderWindow* window) 
+  : window(window) {
+    this->entityManager = new EntityManager();
+  }
 
   /**
    * @brief Virtual destructor.
@@ -37,16 +43,9 @@ class Scene {
    * 
    * Derived scenes must implement this to set up entities, components, resources, etc.
    */
-  virtual void Load() = 0;
+  virtual void load() = 0;
 
-  /**
-   * @brief Handle user input and events.
-   * 
-   * Derived scenes must implement this to process keyboard, mouse, or other events.
-   * 
-   * @param event The SFML event to handle.
-   */
-  virtual void handleInput(sf::Event& event) = 0;
+  virtual void handleEvents(sf::Event event) = 0;
 
   /**
    * @brief Update the scene logic.
@@ -55,14 +54,14 @@ class Scene {
    * 
    * @param dt The time elapsed (delta time) since the last frame, in seconds.
    */
-  virtual void Update(float dt) = 0;
+  virtual void update() = 0;
 
   /**
    * @brief Render the scene contents.
    * 
    * Derived scenes must implement this to draw all visible elements onto the window.
    */
-  virtual void Render() = 0;
+  void render() {};
 
   /**
    * @brief Check if the scene is still running.
@@ -71,14 +70,14 @@ class Scene {
    * 
    * @return True if the scene is running, false if it has ended.
    */
-  bool isRunning() { return _isRunning; }
+  bool isRunning() { return this->running; }
 
   /**
    * @brief End the current scene.
    * 
    * Marks the scene as no longer running, signaling it should be exited or switched.
    */
-  void EndScene() { _isRunning = false; }
+  void end() { this->running = false; }
 
   /**
    * @brief Get a reference to the SFML window.
@@ -88,15 +87,6 @@ class Scene {
    * @return A reference to the pointer to the SFML RenderWindow.
    */
   sf::RenderWindow*& getWindow() {
-      return this->_window;
+      return this->window;
   }
-
-  /**
-   * @brief Get a reference to the EntityManager.
-   * 
-   * Provides access to entity management operations within the scene.
-   * 
-   * @return A reference to the EntityManager instance.
-   */
-  EntityManager& getEntityManager() { return _entityManager; }
 };
