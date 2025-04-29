@@ -1,0 +1,8 @@
+src/main.cpp
+build
+build/*
+.vscode
+.vscode/*
+assets
+assets/*
+compileRun.sh
