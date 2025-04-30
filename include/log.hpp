@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include <string>
 
 class Log {
 public:
@@ -8,19 +7,16 @@ public:
   Log() {};
 
   // Logging
-  template<typename... Args>
-  static void log(Args&&... args) {
+  template <typename... Args> static void log(Args &&...args) {
     (std::cout << ... << args) << std::endl;
   }
 
-  template<typename... Args>
-  static void err(Args&&... args) {
+  template <typename... Args> static void err(Args &&...args) {
     std::cerr << "[ERROR]: ";
     (std::cerr << ... << args) << std::endl;
   }
-  
-  template<typename... Args>
-  static void info(Args&&... args) {
+
+  template <typename... Args> static void info(Args &&...args) {
     std::cout << "[INFO]: ";
     (std::cout << ... << args) << std::endl;
   }

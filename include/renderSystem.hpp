@@ -1,17 +1,16 @@
 #pragma once
-#include <SFML/Graphics.hpp>
 #include "system.hpp"
-#include "entityManager.hpp"
+#include <SFML/Graphics.hpp>
 
 class RenderSystem : public System {
-  public:
+public:
   using System::System;
 
   void update() override {
     // Get all sprites
-    auto& sprites = entityManager->getAllComponents<SpriteComponent>();
+    auto &sprites = entityManager->getAllComponents<SpriteComponent>();
 
-    for (auto& [id, spriteComp] : sprites) {
+    for (auto &[id, spriteComp] : sprites) {
       // Draw with right position if positions component exists
       auto pos = this->entityManager->getComponent<PositionComponent>(id);
       if (pos) {

@@ -1,60 +1,59 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "log.hpp"
 
 class Component {
-  public:
+public:
   virtual ~Component() = default;
 };
 
 class PositionComponent : public Component {
-  public:
+public:
   float x;
   float y;
 
-  public:
+public:
   PositionComponent(float x, float y);
 };
 
 class VelocityComponent : public Component {
-  public:
+public:
   float x;
   float y;
 
-  public:
+public:
   VelocityComponent(float x, float y);
 };
 
 class AccelerationComponent : public Component {
-  public:
+public:
   float x;
   float y;
 
-  public:
+public:
   AccelerationComponent(float x, float y);
 };
 
 class HealthComponent : public Component {
-  public:
+public:
   float max;
   float curr;
 
-  public:
+public:
   HealthComponent(float max, float curr);
 };
 
 class AngleComponent : public Component {
-  public:
+public:
   float angle;
 
-  public:
+public:
   AngleComponent(float angle);
 };
 
 class SpriteComponent : public Component {
-  public:
+public:
   sf::Sprite sprite;
   sf::Texture texture;
-  
-  SpriteComponent(std::string& texturePath);
+
+  SpriteComponent(std::string &texturePath);
 };

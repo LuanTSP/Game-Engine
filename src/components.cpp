@@ -1,4 +1,5 @@
-#include "components.hpp"
+#include "../include/components.hpp"
+#include "../include/log.hpp"
 
 PositionComponent::PositionComponent(float x, float y) {
   this->x = x;
@@ -20,11 +21,9 @@ HealthComponent::HealthComponent(float curr, float max) {
   this->curr = curr;
 }
 
-AngleComponent::AngleComponent(float angle) {
-  this->angle = angle;
-}
+AngleComponent::AngleComponent(float angle) { this->angle = angle; }
 
-SpriteComponent::SpriteComponent(std::string& texturePath) {
+SpriteComponent::SpriteComponent(std::string &texturePath) {
   if (!this->texture.loadFromFile(texturePath)) {
     Log::err("Failed to load texture!");
     throw std::runtime_error("Failed to load texture!");
