@@ -4,13 +4,7 @@
 #include "system.hpp"
 #include <vector>
 
-/**
- * @brief Abstract base class representing a scene in the application.
- * 
- * A Scene encapsulates a set of entities, logic for input handling, updating, 
- * and rendering. Specific scenes (like Menu, Gameplay, GameOver, etc.) should
- * inherit from this class and implement the required virtual methods.
- */
+
 class Scene {
   private:  
   bool running = true;

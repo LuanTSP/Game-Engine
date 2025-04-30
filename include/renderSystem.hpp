@@ -1,5 +1,6 @@
 #pragma once
 #include "system.hpp"
+#include "utils.hpp"
 #include <SFML/Graphics.hpp>
 
 class RenderSystem : public System {
@@ -13,8 +14,14 @@ public:
     for (auto &[id, spriteComp] : sprites) {
       // Draw with right position if positions component exists
       auto pos = this->entityManager->getComponent<PositionComponent>(id);
+      
       if (pos) {
         spriteComp->sprite.setPosition(pos->x, pos->y);
+      
+      } else { // Draw to center of screen of positions not given
+        auto center = getCenterPos(window, spriteComp->sprite);
+        
+        spriteComp->sprite.setPosition(center.x, center.y);
       }
 
       // Draw with right rotation if angle component exists

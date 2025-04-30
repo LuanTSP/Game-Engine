@@ -30,4 +30,5 @@ SpriteComponent::SpriteComponent(std::string &texturePath) {
   }
 
   sprite.setTexture(this->texture);
+  sprite.setOrigin(0,0);
 }

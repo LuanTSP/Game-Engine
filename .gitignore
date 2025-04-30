@@ -6,3 +6,4 @@ build/*
 assets
 assets/*
 compileRun.sh
+main.cpp
