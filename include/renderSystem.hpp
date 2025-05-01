@@ -30,7 +30,7 @@ public:
         spriteComp->sprite.setRotation(ang->angle);
       }
 
-      this->window->draw(spriteComp->sprite);
+      this->window.draw(spriteComp->sprite);
     }
   }
 };

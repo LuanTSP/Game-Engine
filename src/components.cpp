@@ -23,12 +23,8 @@ HealthComponent::HealthComponent(float curr, float max) {
 
 AngleComponent::AngleComponent(float angle) { this->angle = angle; }
 
-SpriteComponent::SpriteComponent(std::string &texturePath) {
-  if (!this->texture.loadFromFile(texturePath)) {
-    Log::err("Failed to load texture!");
-    throw std::runtime_error("Failed to load texture!");
-  }
+SpriteComponent::SpriteComponent(std::shared_ptr<sf::Texture> texture) {
 
-  sprite.setTexture(this->texture);
+  sprite.setTexture(*texture);
   sprite.setOrigin(0,0);
 }

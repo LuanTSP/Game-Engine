@@ -2,12 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include <memory>
 
-sf::Vector2i getWindowCenterPos(std::shared_ptr<sf::RenderWindow> window) {
-  auto size = window->getSize();
+sf::Vector2i getWindowCenterPos(sf::RenderWindow& window) {
+  auto size = window.getSize();
   return sf::Vector2i(size.x / 2, size.y / 2);
 }
 
-sf::Vector2f getCenterPos(std::shared_ptr<sf::RenderWindow>& window, sf::Sprite& sprite) {
+sf::Vector2f getCenterPos(sf::RenderWindow& window, sf::Sprite& sprite) {
   auto bounds = sprite.getLocalBounds();
         
   float spriteWidth = bounds.width;

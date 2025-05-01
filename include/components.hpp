@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "resourceManager.hpp"
 
 class Component {
 public:
@@ -53,7 +54,6 @@ public:
 class SpriteComponent : public Component {
 public:
   sf::Sprite sprite;
-  sf::Texture texture;
 
-  SpriteComponent(std::string &texturePath);
+  SpriteComponent(std::shared_ptr<sf::Texture> texture);
 };
