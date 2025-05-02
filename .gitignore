@@ -7,3 +7,5 @@ assets
 assets/*
 compileRun.sh
 main.cpp
+test
+test/*

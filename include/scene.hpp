@@ -17,11 +17,12 @@ class Scene {
   std::shared_ptr<ResourceManager> resourceManager;
 
   public:
-  Scene(sf::RenderWindow& window) : 
+  Scene(sf::RenderWindow& window, std::shared_ptr<ResourceManager> resourceManager) : 
     window(window), 
-    entityManager(std::make_shared<EntityManager>()),
-    resourceManager(std::make_shared<ResourceManager>())
-  {}
+    entityManager(std::make_shared<EntityManager>())
+  {
+    this->resourceManager = resourceManager;
+  }
 
   ~Scene() = default;
 
