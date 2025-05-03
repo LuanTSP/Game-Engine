@@ -29,13 +29,13 @@ class Scene {
   // Core Functionality
   virtual void handleEvents(sf::Event event) = 0;
 
-  virtual void update() {
+  virtual void update(float elapsed) {
     this->window.clear();
 
     this->entityManager->update();
 
     for (auto& system : this->systems) {
-      system->update();
+      system->update(elapsed);
     }
 
     this->window.display();

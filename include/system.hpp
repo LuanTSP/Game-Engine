@@ -16,5 +16,5 @@ public:
 
   virtual ~System() = default;
 
-  virtual void update() = 0;
+  virtual void update(float elapsed) = 0;
 };

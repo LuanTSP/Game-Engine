@@ -63,26 +63,28 @@ public:
   AngleComponent(float angle) { this->angle = angle; }
 };
 
-class SpriteComponent : public Component {
+class StaticSpriteComponent : public Component {
 public:
   sf::Sprite sprite;
 
-  SpriteComponent(std::shared_ptr<sf::Texture> texture) {
-
+  StaticSpriteComponent(std::shared_ptr<sf::Texture> texture) {
     sprite.setTexture(*texture);
     sprite.setOrigin(0,0);
   }
 };
 
-class AnimationComponent : public Component {
+class AnimatedSpriteComponent : public Component {
   public:
+  float elapsed = 0;
+  sf::Sprite sprite;
   int frameWidth;
   int frameHeight;
   int numFrames;
   float frameDuration;
   int currentFrame = 0;
 
-  AnimationComponent(
+  AnimatedSpriteComponent(
+    std::shared_ptr<sf::Texture> texture,
     int frameWidth, 
     int frameHeight, 
     int numFrames, 
@@ -94,5 +96,8 @@ class AnimationComponent : public Component {
     this->numFrames = numFrames;
     this->frameDuration = frameDuration;
     this->currentFrame = currentFrame % numFrames;
+    sprite.setTexture(*texture);
+    sprite.setTextureRect(sf::IntRect(0, 0, frameWidth, frameHeight));
+    sprite.setOrigin(0,0);
   };
 };
