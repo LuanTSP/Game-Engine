@@ -69,7 +69,9 @@ public:
 
   StaticSpriteComponent(std::shared_ptr<sf::Texture> texture) {
     sprite.setTexture(*texture);
-    sprite.setOrigin(0,0);
+    // set origin to center
+    sf::FloatRect bounds = sprite.getLocalBounds();
+    sprite.setOrigin(bounds.width / 2.f, bounds.height / 2.f);
   }
 };
 
@@ -98,6 +100,18 @@ class AnimatedSpriteComponent : public Component {
     this->currentFrame = currentFrame % numFrames;
     sprite.setTexture(*texture);
     sprite.setTextureRect(sf::IntRect(0, 0, frameWidth, frameHeight));
-    sprite.setOrigin(0,0);
+    // set origin to center
+    sprite.setOrigin(this->frameWidth / 2.f, this->frameHeight / 2.f);
   };
+};
+
+class ScaleAnimatedSpriteComponent : public Component {
+  public:
+  float x;
+  float y;
+
+  ScaleAnimatedSpriteComponent(float x, float y) {
+    this->x = x;
+    this->y = y;
+  }
 };

@@ -14,13 +14,10 @@ public:
     for (auto &[id, spriteComp] : sprites) {
       // Draw with right position if positions component exists
       auto pos = this->entityManager->getComponent<PositionComponent>(id);
-      
       if (pos) {
         spriteComp->sprite.setPosition(pos->x, pos->y);
-      
-      } else { // Draw to center of screen of positions not given
-        auto center = getCenterPos(window, spriteComp->sprite);
-        
+      } else {
+        auto center = getCenterPos(window);
         spriteComp->sprite.setPosition(center.x, center.y);
       }
 
@@ -39,13 +36,10 @@ public:
     for (auto &[id, animSpriteComp] : animatedSprites) {
       // Draw with right position if positions component exists
       auto pos = this->entityManager->getComponent<PositionComponent>(id);
-      
       if (pos) {
         animSpriteComp->sprite.setPosition(pos->x, pos->y);
-      
-      } else { // Draw to center of screen of positions not given
-        auto center = getCenterPos(window, animSpriteComp->sprite);
-        
+      } else {
+        auto center = getCenterPos(window);
         animSpriteComp->sprite.setPosition(center.x, center.y);
       }
 
@@ -53,6 +47,12 @@ public:
       auto ang = this->entityManager->getComponent<AngleComponent>(id);
       if (ang) {
         animSpriteComp->sprite.setRotation(ang->angle);
+      }
+
+      // Scale animated sprite
+      auto scale = this->entityManager->getComponent<ScaleAnimatedSpriteComponent>(id);
+      if (scale) {
+        animSpriteComp->sprite.setScale(scale->x, scale->y);
       }
 
       // Check if should update sprite
@@ -63,6 +63,7 @@ public:
         animSpriteComp->elapsed = 0;
       }
 
+      // Draw to the window
       this->window.draw(animSpriteComp->sprite);
     }
   }
