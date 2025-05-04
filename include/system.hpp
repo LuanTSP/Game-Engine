@@ -6,12 +6,12 @@
 class System {
 public:
   std::shared_ptr<EntityManager> entityManager;
-  sf::RenderWindow& window;
+  std::shared_ptr<sf::RenderWindow> window;
 
 public:
-  System(sf::RenderWindow& window, std::shared_ptr<EntityManager> entityManager) :
+  System(std::shared_ptr<sf::RenderWindow>& window, std::shared_ptr<EntityManager>& entityManager) :
     window(window),
-    entityManager(entityManager) 
+    entityManager(entityManager)
   {}
 
   virtual ~System() = default;

@@ -27,7 +27,7 @@ public:
         spriteComp->sprite.setRotation(ang->angle);
       }
 
-      this->window.draw(spriteComp->sprite);
+      this->window->draw(spriteComp->sprite);
     }
 
     // Get all animated sprites
@@ -64,7 +64,7 @@ public:
       }
 
       // Draw to the window
-      this->window.draw(animSpriteComp->sprite);
+      this->window->draw(animSpriteComp->sprite);
     }
   }
 };

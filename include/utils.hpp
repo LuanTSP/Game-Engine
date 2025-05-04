@@ -3,8 +3,8 @@
 #include <memory>
 
 
-sf::Vector2f getCenterPos(sf::RenderWindow& window) {  
-  auto size = window.getSize();
+sf::Vector2f getCenterPos(std::shared_ptr<sf::RenderWindow>& window) {  
+  auto size = window->getSize();
   
   sf::Vector2f center;
   center.x = size.x / 2.0f;

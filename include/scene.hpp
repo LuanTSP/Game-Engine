@@ -3,48 +3,66 @@
 #include "entityManager.hpp"
 #include "system.hpp"
 #include "resourceManager.hpp"
+#include <functional>
 #include <vector>
+
+
+struct EventTrigger {
+  bool (*condition)(sf::Event&);
+  void (*action)(sf::Event&);
+};
 
 
 class Scene {
   private:  
   bool running = true;
   std::vector<std::shared_ptr<System>> systems;
-
+  
   public:
-  sf::RenderWindow& window;
+  std::vector<EventTrigger> triggers;
+  std::shared_ptr<sf::RenderWindow> window;
   std::shared_ptr<EntityManager> entityManager;
   std::shared_ptr<ResourceManager> resourceManager;
 
   public:
-  Scene(sf::RenderWindow& window, std::shared_ptr<ResourceManager> resourceManager) : 
-    window(window), 
-    entityManager(std::make_shared<EntityManager>())
-  {
+  Scene(
+    std::shared_ptr<sf::RenderWindow>& window, 
+    std::shared_ptr<ResourceManager>& resourceManager,
+    std::shared_ptr<EntityManager>& entityManager) {
+    this->window = window;
     this->resourceManager = resourceManager;
+    this->entityManager = entityManager;
   }
 
   ~Scene() = default;
 
-  // Core Functionality
-  virtual void handleEvents(sf::Event event) = 0;
+  virtual void update(float elapsed, sf::Event& event) {
+    this->window->clear();
 
-  virtual void update(float elapsed) {
-    this->window.clear();
+    // Update events
+    while (this->window->pollEvent(event)) {
+      for (const auto &trigger : this->triggers) {
+        if (trigger.condition(event)) {
+          trigger.action(event);
+        }
+      }
+    }
 
+    // Update entity manager
     this->entityManager->update();
 
+    // Update all systems
     for (auto& system : this->systems) {
       system->update(elapsed);
     }
 
-    this->window.display();
+    this->window->display();
   }
 
   bool isRunning() { return this->running; }
 
   void end() { 
-    this->window.close();
+    this->window->close();
     this->running = false; 
   }
 
@@ -54,29 +72,11 @@ class Scene {
     this->systems.push_back(std::make_shared<T>(this->window, this->entityManager));
   }
 
-  // Resource Manager Functionality
-  void loadTexture(std::string& name, std::string& path) {
-    this->resourceManager->loadTexture(name, path);
+  // Trigger
+  void attachTrigger(
+    bool (*condition)(sf::Event&),
+    void (*action)(sf::Event&)
+  ) {
+    this->triggers.push_back({condition, action});
   }
-
-  void loadTexture(const char * name, const char * path) {
-    std::string sname = name;
-    std::string spath = path;
-    this->resourceManager->loadTexture(sname, spath);
-  }
-
-  void unloadTexture(std::string name) {
-    this->resourceManager->unloadTexture(name);
-  }
-
-  std::shared_ptr<sf::Texture> getTexture(std::string name) {
-    return this->resourceManager->getTexture(name);
-  }
-
-  // Entity Manager Functionality
-  template <typename T, typename... Args>
-  void addComponent(std::size_t id, Args &&...args) {
-    this->entityManager->addComponent<T>(id, std::forward<Args>(args)...);
-  }
-  
 };
