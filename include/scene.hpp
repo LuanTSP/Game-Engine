@@ -8,10 +8,9 @@
 
 
 struct EventTrigger {
-  bool (*condition)(sf::Event&);
-  void (*action)(sf::Event&);
+  std::function<bool(sf::Event&)> condition;
+  std::function<void(sf::Event&)> action;
 };
-
 
 class Scene {
   private:  
@@ -74,9 +73,9 @@ class Scene {
 
   // Trigger
   void attachTrigger(
-    bool (*condition)(sf::Event&),
-    void (*action)(sf::Event&)
-  ) {
+    std::function<bool(sf::Event&)> condition,
+    std::function<void(sf::Event&)> action) 
+  {    
     this->triggers.push_back({condition, action});
   }
 };
