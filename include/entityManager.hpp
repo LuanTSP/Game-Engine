@@ -20,14 +20,15 @@ private:
   std::unordered_map<std::size_t, std::string> tags;
 
   std::vector<std::size_t> toRemove;
+  std::vector<std::size_t> removed;
 
 public:
   EntityManager() {};
 
   void update() {
     // Remove all entities marked to be removed
-    for (auto e : toRemove) {
-      removeEntity(e);
+    for (auto id : toRemove) {
+      removeEntity(id);
     }
     toRemove.clear();
   }
@@ -49,8 +50,11 @@ public:
 
   template <typename T, typename... Args>
   void addComponent(std::size_t id, Args &&...args) {
-    components[std::type_index(typeid(T))][id] =
-        std::make_shared<T>(std::forward<Args>(args)...);
+    if (std::find(this->removed.begin(), this->removed.end(), id) != this->removed.end()) {
+      Log::err("Entity with id ", id, " does not exist!");
+      throw std::runtime_error("Entity no long exists!");
+    }
+    components[std::type_index(typeid(T))][id] = std::make_shared<T>(std::forward<Args>(args)...);
   }
 
   template <typename T> std::shared_ptr<T> getComponent(std::size_t id) {
@@ -87,6 +91,8 @@ public:
     for (auto &[type, map] : components) {
       map.erase(id);
     }
+
+    this->removed.push_back(id);
 
     // Erase from tags
     tags.erase(id);

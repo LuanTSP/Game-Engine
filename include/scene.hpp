@@ -14,7 +14,7 @@ struct EventTrigger {
 
 class Scene {
   private:  
-  bool running = true;
+  bool running = false;
   std::vector<std::shared_ptr<System>> systems;
   
   public:
@@ -58,11 +58,12 @@ class Scene {
     this->window->display();
   }
 
+  virtual void init() = 0; 
+
   bool isRunning() { return this->running; }
 
-  void end() { 
-    this->window->close();
-    this->running = false; 
+  void setRunning(bool running) {
+    this->running = running;
   }
 
   // System Functionality
