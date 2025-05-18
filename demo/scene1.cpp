@@ -1,11 +1,22 @@
 #include "scene.hpp"
 #include "renderSystem.hpp"
+#include "sceneManager.hpp"
+
 
 class SceneSoldier : public Scene {
   public:
   using Scene::Scene;
 
   void init() override {
+    // Load resources
+    resourceManager->loadTexture("soldier-idle", "assets/textures/Soldier/Soldier/Soldier-Idle.png");
+    resourceManager->loadTexture("soldier-walk", "assets/textures/Soldier/Soldier/Soldier-Walk.png");
+    resourceManager->loadTexture("soldier-hurt", "assets/textures/Soldier/Soldier/Soldier-Hurt.png");
+    resourceManager->loadTexture("soldier-attack-1", "assets/textures/Soldier/Soldier/Soldier-Attack01.png");
+    resourceManager->loadTexture("soldier-attack-2", "assets/textures/Soldier/Soldier/Soldier-Attack02.png");
+    resourceManager->loadTexture("soldier-attack-3", "assets/textures/Soldier/Soldier/Soldier-Attack03.png");
+    resourceManager->loadTexture("soldier-death", "assets/textures/Soldier/Soldier/Soldier-Death.png");
+    
     // Make Player
     auto player = this->entityManager->createEntity("player");
     this->entityManager->addComponent<AnimatedSpriteComponent>(
@@ -14,7 +25,6 @@ class SceneSoldier : public Scene {
       100, 100, 6, 0.1f, 0
     );
     this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(player, 5, 5);
-    
 
     // Add Systems
     this->addSystem<RenderSystem>();
@@ -169,14 +179,16 @@ class SceneSoldier : public Scene {
 
     this->attachTrigger(
       [](sf::Event& event) {
-        if (event.type == sf::Event::Closed) {
-          return true;
+        if (event.type == sf::Event::KeyPressed) {
+          if (event.key.code == sf::Keyboard::R) {
+            return true;
+          }
         }
     
         return false;
       }, 
-      [this, player](sf::Event& event) {
-      this->window->close();
+      [this](sf::Event& event) {
+      this->setSceneToChange("scene-orc");
     });
   }
 };

@@ -6,6 +6,14 @@ class SceneOrc : public Scene {
   using Scene::Scene;
 
   void init() override {
+    // Load resources
+    resourceManager->loadTexture("orc-idle", "assets/textures/Orc/Orc/Orc-Idle.png");
+    resourceManager->loadTexture("orc-walk", "assets/textures/Orc/Orc/Orc-Walk.png");
+    resourceManager->loadTexture("orc-hurt", "assets/textures/Orc/Orc/Orc-Hurt.png");
+    resourceManager->loadTexture("orc-attack-1", "assets/textures/Orc/Orc/Orc-Attack01.png");
+    resourceManager->loadTexture("orc-attack-2", "assets/textures/Orc/Orc/Orc-Attack02.png");
+    resourceManager->loadTexture("orc-death", "assets/textures/Orc/Orc/Orc-Death.png");
+    
     // Make Orc
     auto orc = this->entityManager->createEntity("orc");
     this->entityManager->addComponent<AnimatedSpriteComponent>(
@@ -14,7 +22,6 @@ class SceneOrc : public Scene {
       100, 100, 6, 0.1f, 0
     );
     this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(orc, 5, 5);
-    
 
     // Add Systems
     this->addSystem<RenderSystem>();
@@ -151,14 +158,16 @@ class SceneOrc : public Scene {
 
     this->attachTrigger(
       [](sf::Event& event) {
-        if (event.type == sf::Event::Closed) {
-          return true;
+        if (event.type == sf::Event::KeyPressed) {
+          if (event.key.code == sf::Keyboard::R) {
+            return true;
+          }
         }
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
-      this->window->close();
+      [this](sf::Event& event) {
+      this->setSceneToChange("scene-soldier");
     });
   }
 };

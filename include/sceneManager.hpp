@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include "log.hpp"
 
+
 class SceneManager {
   private:
   std::unordered_map<std::string, std::shared_ptr<Scene>> scenes;
@@ -12,6 +13,12 @@ class SceneManager {
   
   public:
   SceneManager() {}
+
+  void addScene(const char * name, std::shared_ptr<Scene> scene) {
+    std::string strName = name;
+    scene->init();
+    this->scenes[strName] = scene;
+  }
 
   void addScene(std::string& name, std::shared_ptr<Scene> scene) {
     scene->init();
@@ -33,7 +40,24 @@ class SceneManager {
     return nullptr;
   }
 
-  void update(float elapsed, sf::Event &event) {
+  void update(float elapsed, sf::Event &event) {  
+    // Checks if active scene should be changed
+    for (auto &[sceneName, scene] : this->scenes) {
+      std::string toChange = scene->getSceneToChange();
+      if (toChange == "") {
+        continue;
+      }
+
+      if (scenes.find(toChange) == scenes.end()) {
+        throw std::runtime_error("Scene not found");
+        Log::err("Scene ", toChange, " not found");
+      }
+
+      this->setActiveScene(toChange);
+      scene->setSceneToChange("");
+    }
+
+    // Updates the active scene if found
     if (this->scenes.find(this->active) != this->scenes.end()) {
       this->scenes[this->active]->update(elapsed, event);
     }
@@ -43,7 +67,12 @@ class SceneManager {
     return this->running;
   }
 
-  void setActiveScene(std::string name) {    
+  void setActiveScene(const char * name) {
+    std::string strName = name;
+    this->setActiveScene(strName);
+  }
+  
+  void setActiveScene(std::string name) {  
     // trying to set scene active when there was no active scene previously
     if (this->scenes.find(this->active) == this->scenes.end()) {
       if (this->scenes.find(name) != this->scenes.end()) {
