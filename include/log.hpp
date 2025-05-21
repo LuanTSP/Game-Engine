@@ -4,7 +4,7 @@
 class Log {
 public:
   // Init
-  Log() {};
+  Log();
 
   // Logging
   template <typename... Args> static void log(Args &&...args) {

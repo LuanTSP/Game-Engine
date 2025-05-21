@@ -1,8 +1,8 @@
 CMakeFiles/demo.dir/main.cpp.o: \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/main.cpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/main.cpp \
  /usr/include/stdc-predef.h \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/sceneManager.hpp \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/scene.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/sceneManager.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/scene.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -248,9 +248,9 @@ CMakeFiles/demo.dir/main.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/entityManager.hpp \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/components.hpp \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/resourceManager.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/entityManager.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/components.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/resourceManager.hpp \
  /usr/include/c++/14/unordered_map \
  /usr/include/c++/14/bits/unordered_map.h \
  /usr/include/c++/14/bits/hashtable.h \
@@ -268,21 +268,13 @@ CMakeFiles/demo.dir/main.cpp.o: \
  /usr/include/c++/14/bits/atomic_lockfree_defines.h \
  /usr/include/c++/14/backward/auto_ptr.h \
  /usr/include/c++/14/pstl/glue_memory_defs.h \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/log.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/log.hpp \
  /usr/include/c++/14/iostream /usr/include/c++/14/istream \
  /usr/include/c++/14/bits/istream.tcc /usr/include/c++/14/typeindex \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/../include/system.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/../include/system.hpp \
  /usr/include/c++/14/functional /usr/include/c++/14/bits/std_function.h \
  /usr/include/c++/14/array /usr/include/c++/14/compare \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/src/scenes/scene1.cpp \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/src/scenes/../../../include/renderSystem.hpp \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/src/scenes/../../../include/utils.hpp \
- /usr/include/c++/14/filesystem /usr/include/c++/14/bits/fs_fwd.h \
- /usr/include/c++/14/cstdint /usr/include/c++/14/bits/chrono.h \
- /usr/include/c++/14/ratio /usr/include/c++/14/limits \
- /usr/include/c++/14/bits/parse_numbers.h \
- /usr/include/c++/14/bits/fs_path.h /usr/include/c++/14/iomanip \
- /usr/include/c++/14/bits/quoted_string.h /usr/include/c++/14/sstream \
- /usr/include/c++/14/bits/sstream.tcc /usr/include/c++/14/codecvt \
- /usr/include/c++/14/bits/fs_dir.h /usr/include/c++/14/bits/fs_ops.h \
- /home/luantsp/Documentos/Projetos/GameEngine/demo/src/scenes/scene2.cpp
+ /home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/scene1.cpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/../../../include/renderSystem.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/../../../include/utils.hpp \
+ /home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/scene2.cpp

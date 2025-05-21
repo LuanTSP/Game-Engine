@@ -7,12 +7,12 @@ class SceneOrc : public Scene {
 
   void init() override {
     // Load resources
-    resourceManager->loadTexture("orc-idle", "/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Idle.png");
-    resourceManager->loadTexture("orc-walk", "/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Walk.png");
-    resourceManager->loadTexture("orc-hurt", "/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Hurt.png");
-    resourceManager->loadTexture("orc-attack-1", "/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Attack01.png");
-    resourceManager->loadTexture("orc-attack-2", "/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Attack02.png");
-    resourceManager->loadTexture("orc-death", "/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Death.png");
+    resourceManager->loadTexture("orc-idle", "/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Idle.png");
+    resourceManager->loadTexture("orc-walk", "/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Walk.png");
+    resourceManager->loadTexture("orc-hurt", "/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Hurt.png");
+    resourceManager->loadTexture("orc-attack-1", "/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Attack01.png");
+    resourceManager->loadTexture("orc-attack-2", "/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Attack02.png");
+    resourceManager->loadTexture("orc-death", "/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Orc/Orc/Orc-Death.png");
     
     // Make Orc
     auto orc = this->entityManager->createEntity("orc");

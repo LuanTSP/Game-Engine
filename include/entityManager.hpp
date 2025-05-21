@@ -23,30 +23,13 @@ private:
   std::vector<std::size_t> removed;
 
 public:
-  EntityManager() {};
+  EntityManager();
 
-  void update() {
-    // Remove all entities marked to be removed
-    for (auto id : toRemove) {
-      removeEntity(id);
-    }
-    toRemove.clear();
-  }
+  void update();
 
-  std::size_t createEntity(std::string tag) {
-    nextId++;
-    tags[nextId] = tag;
-    return nextId;
-  }
+  std::size_t createEntity(std::string tag);
 
-  std::string getTag(std::size_t id) const {
-    auto it = tags.find(id);
-    if (it != tags.end()) {
-      return it->second;
-    }
-    Log::err("Invalid id!");
-    throw std::runtime_error("Invalid Id!");
-  }
+  std::string getTag(std::size_t id) const;
 
   template <typename T, typename... Args>
   void addComponent(std::size_t id, Args &&...args) {
@@ -86,23 +69,7 @@ public:
     components[std::type_index(typeid(T))].erase(id);
   }
 
-  void removeEntity(std::size_t id) {
-    // Erase all components of entity from 'components'
-    for (auto &[type, map] : components) {
-      map.erase(id);
-    }
+  void removeEntity(std::size_t id);
 
-    this->removed.push_back(id);
-
-    // Erase from tags
-    tags.erase(id);
-  }
-
-  void removeEntitiesByTag(std::string tag) {
-    for (auto [id, e_tag] : tags) {
-      if (e_tag == tag) {
-        toRemove.push_back(id);
-      }
-    }
-  }
+  void removeEntitiesByTag(std::string tag);
 };

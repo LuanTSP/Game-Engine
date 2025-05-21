@@ -5,7 +5,7 @@ demo: \
   CMakeFiles/demo.dir/main.cpp.o \
   CMakeFiles/demo.dir/src/scenes/scene1.cpp.o \
   CMakeFiles/demo.dir/src/scenes/scene2.cpp.o \
-  /home/luantsp/Documentos/Projetos/GameEngine/demo/../build/libengine.a \
+  /home/luantsp/Documents/Projetos/GameEngine/demo/../build/libengine.a \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/libsfml-graphics.so \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/libsfml-window.so \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/libsfml-system.so \
@@ -98,7 +98,7 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 CMakeFiles/demo.dir/src/scenes/scene2.cpp.o:
 
-/home/luantsp/Documentos/Projetos/GameEngine/demo/../build/libengine.a:
+/home/luantsp/Documents/Projetos/GameEngine/demo/../build/libengine.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/14/../../../x86_64-linux-gnu/libsfml-graphics.so:
 

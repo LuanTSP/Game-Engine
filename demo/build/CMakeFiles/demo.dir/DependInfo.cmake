@@ -8,9 +8,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/luantsp/Documentos/Projetos/GameEngine/demo/main.cpp" "CMakeFiles/demo.dir/main.cpp.o" "gcc" "CMakeFiles/demo.dir/main.cpp.o.d"
-  "/home/luantsp/Documentos/Projetos/GameEngine/demo/src/scenes/scene1.cpp" "CMakeFiles/demo.dir/src/scenes/scene1.cpp.o" "gcc" "CMakeFiles/demo.dir/src/scenes/scene1.cpp.o.d"
-  "/home/luantsp/Documentos/Projetos/GameEngine/demo/src/scenes/scene2.cpp" "CMakeFiles/demo.dir/src/scenes/scene2.cpp.o" "gcc" "CMakeFiles/demo.dir/src/scenes/scene2.cpp.o.d"
+  "/home/luantsp/Documents/Projetos/GameEngine/demo/main.cpp" "CMakeFiles/demo.dir/main.cpp.o" "gcc" "CMakeFiles/demo.dir/main.cpp.o.d"
+  "/home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/scene1.cpp" "CMakeFiles/demo.dir/src/scenes/scene1.cpp.o" "gcc" "CMakeFiles/demo.dir/src/scenes/scene1.cpp.o.d"
+  "/home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/scene2.cpp" "CMakeFiles/demo.dir/src/scenes/scene2.cpp.o" "gcc" "CMakeFiles/demo.dir/src/scenes/scene2.cpp.o.d"
   "" "demo" "gcc" "CMakeFiles/demo.dir/link.d"
   )
 

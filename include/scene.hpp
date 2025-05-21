@@ -26,12 +26,7 @@ public:
   std::shared_ptr<ResourceManager> resourceManager = nullptr;
 
 public:
-  Scene(std::shared_ptr<sf::RenderWindow> &window)
-  {
-    this->window = window;
-    this->resourceManager = std::make_shared<ResourceManager>();
-    this->entityManager = std::make_shared<EntityManager>();
-  }
+  Scene(std::shared_ptr<sf::RenderWindow> &window);
 
   ~Scene() = default;
 
@@ -65,12 +60,9 @@ public:
 
   virtual void init() = 0;
 
-  bool isRunning() { return this->running; }
+  bool isRunning();
 
-  void setRunning(bool running)
-  {
-    this->running = running;
-  }
+  void setRunning(bool running);
 
   // System Functionality
   template <typename T>
@@ -80,25 +72,11 @@ public:
   }
 
   // Trigger
-  void attachTrigger
-  (
-    std::function<bool(sf::Event &)> condition,
-    std::function<void(sf::Event &)> action
-  )
-  {
-    this->triggers.push_back({condition, action});
-  }
+  void attachTrigger(std::function<bool(sf::Event &)> condition, std::function<void(sf::Event &)> action);
 
-  std::string getSceneToChange() {
-    return this->sceneToChange;
-  }
+  std::string getSceneToChange();
 
-  void setSceneToChange(std::string name) {
-    this->sceneToChange = name;
-  }
+  void setSceneToChange(std::string name);
 
-  void setSceneToChange(const char * name) {
-    std::string strName = name;
-    this->sceneToChange = strName;
-  }
+  void setSceneToChange(const char * name);
 };

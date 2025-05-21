@@ -1,6 +1,5 @@
 #include "../../../include/scene.hpp"
 #include "../../../include/renderSystem.hpp"
-#include <filesystem>
 
 
 class SceneSoldier : public Scene {
@@ -9,14 +8,13 @@ class SceneSoldier : public Scene {
 
   void init() override {
     // Load resources
-    std::cout << std::filesystem::current_path().string() << std::endl;
-    resourceManager->loadTexture("soldier-idle","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Idle.png");
-    resourceManager->loadTexture("soldier-walk","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Walk.png");
-    resourceManager->loadTexture("soldier-hurt","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Hurt.png");
-    resourceManager->loadTexture("soldier-attack-1","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack01.png");
-    resourceManager->loadTexture("soldier-attack-2","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack02.png");
-    resourceManager->loadTexture("soldier-attack-3","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack03.png");
-    resourceManager->loadTexture("soldier-death","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Death.png");
+    resourceManager->loadTexture("soldier-idle","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Idle.png");
+    resourceManager->loadTexture("soldier-walk","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Walk.png");
+    resourceManager->loadTexture("soldier-hurt","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Hurt.png");
+    resourceManager->loadTexture("soldier-attack-1","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack01.png");
+    resourceManager->loadTexture("soldier-attack-2","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack02.png");
+    resourceManager->loadTexture("soldier-attack-3","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack03.png");
+    resourceManager->loadTexture("soldier-death","/home/luantsp/Documents/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Death.png");
     
     // Make Player
     auto player = this->entityManager->createEntity("player");
