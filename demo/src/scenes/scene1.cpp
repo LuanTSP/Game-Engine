@@ -1,27 +1,31 @@
-#include "scene.hpp"
-#include "renderSystem.hpp"
+#include "../../../include/scene.hpp"
+#include "../../../include/renderSystem.hpp"
+#include <filesystem>
 
-class SceneOrc : public Scene {
+
+class SceneSoldier : public Scene {
   public:
   using Scene::Scene;
 
   void init() override {
     // Load resources
-    resourceManager->loadTexture("orc-idle", "assets/textures/Orc/Orc/Orc-Idle.png");
-    resourceManager->loadTexture("orc-walk", "assets/textures/Orc/Orc/Orc-Walk.png");
-    resourceManager->loadTexture("orc-hurt", "assets/textures/Orc/Orc/Orc-Hurt.png");
-    resourceManager->loadTexture("orc-attack-1", "assets/textures/Orc/Orc/Orc-Attack01.png");
-    resourceManager->loadTexture("orc-attack-2", "assets/textures/Orc/Orc/Orc-Attack02.png");
-    resourceManager->loadTexture("orc-death", "assets/textures/Orc/Orc/Orc-Death.png");
+    std::cout << std::filesystem::current_path().string() << std::endl;
+    resourceManager->loadTexture("soldier-idle","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Idle.png");
+    resourceManager->loadTexture("soldier-walk","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Walk.png");
+    resourceManager->loadTexture("soldier-hurt","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Hurt.png");
+    resourceManager->loadTexture("soldier-attack-1","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack01.png");
+    resourceManager->loadTexture("soldier-attack-2","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack02.png");
+    resourceManager->loadTexture("soldier-attack-3","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Attack03.png");
+    resourceManager->loadTexture("soldier-death","/home/luantsp/Documentos/Projetos/GameEngine/demo/assets/textures/Soldier/Soldier/Soldier-Death.png");
     
-    // Make Orc
-    auto orc = this->entityManager->createEntity("orc");
+    // Make Player
+    auto player = this->entityManager->createEntity("player");
     this->entityManager->addComponent<AnimatedSpriteComponent>(
-      orc, 
-      resourceManager->getTexture("orc-idle"),
+      player, 
+      resourceManager->getTexture("soldier-idle"),
       100, 100, 6, 0.1f, 0
     );
-    this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(orc, 5, 5);
+    this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(player, 5, 5);
 
     // Add Systems
     this->addSystem<RenderSystem>();
@@ -38,10 +42,10 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-idle"),
+        player, 
+        resourceManager->getTexture("soldier-idle"),
         100, 100, 4, 0.1, 0
       );
     });
@@ -56,10 +60,10 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-death"),
+        player, 
+        resourceManager->getTexture("soldier-death"),
         100, 100, 4, 0.1, 0
       );
     });
@@ -74,10 +78,10 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-hurt"),
+        player, 
+        resourceManager->getTexture("soldier-hurt"),
         100, 100, 4, 0.1, 0
       );
     });
@@ -92,13 +96,13 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-walk"),
+        player, 
+        resourceManager->getTexture("soldier-walk"),
         100, 100, 6, 0.1, 0
       );
-      this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(orc, -5, 5);
+      this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(player, -5, 5);
     });
 
     this->attachTrigger(
@@ -111,13 +115,13 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-walk"),
+        player, 
+        resourceManager->getTexture("soldier-walk"),
         100, 100, 6, 0.1, 0
       );
-      this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(orc, 5, 5);
+      this->entityManager->addComponent<ScaleAnimatedSpriteComponent>(player, 5, 5);
     });
 
     this->attachTrigger(
@@ -130,10 +134,10 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-attack-1"),
+        player, 
+        resourceManager->getTexture("soldier-attack-1"),
         100, 100, 6, 0.1, 0
       );
     });
@@ -148,11 +152,29 @@ class SceneOrc : public Scene {
     
         return false;
       }, 
-      [this, orc](sf::Event& event) {
+      [this, player](sf::Event& event) {
       this->entityManager->addComponent<AnimatedSpriteComponent>(
-        orc, 
-        resourceManager->getTexture("orc-attack-2"),
+        player, 
+        resourceManager->getTexture("soldier-attack-2"),
         100, 100, 6, 0.1, 0
+      );
+    });
+
+    this->attachTrigger(
+      [](sf::Event& event) {
+        if (event.type == sf::Event::MouseButtonPressed) {
+          if (event.mouseButton.button == sf::Mouse::Button::Middle) {
+            return true;
+          }
+        }
+    
+        return false;
+      }, 
+      [this, player](sf::Event& event) {
+      this->entityManager->addComponent<AnimatedSpriteComponent>(
+        player, 
+        resourceManager->getTexture("soldier-attack-3"),
+        100, 100, 9, 0.1, 0
       );
     });
 
@@ -167,7 +189,7 @@ class SceneOrc : public Scene {
         return false;
       }, 
       [this](sf::Event& event) {
-      this->setSceneToChange("scene-soldier");
+      this->setSceneToChange("scene-orc");
     });
   }
 };
