@@ -1,17 +1,35 @@
 #include "engine.hpp"
 
-Engine::Engine() {
-  this->log = new Log();
-}
+namespace engine {
+  Engine::Engine() {
+    this->sceneManager = std::make_shared<SceneManager>();
+    this->isRunning = false;
+  }
 
-void Engine::init() {
-  log->log("Engine initiated with success");
-}
+  void Engine::init() {
+    this->sceneManager->init();
+  }
 
-void Engine::run() {
-  log->log("Running ...");
-}
+  void Engine::run() {
+    Log::log("Engine running...");
+    this->isRunning = true;
 
-void Engine::shutdown() {
-  log->log("Shutting Down ...");
+    // Gameloop
+    sf::Event event; // sfml events
+    sf::Clock clock; // sfml clock
+    float elapsed;   // elapsd time in seconds since last frame
+    while (this->isRunning)
+    {
+      // update elapsed time
+      elapsed = clock.restart().asSeconds();
+
+      // update scene manager
+      this->sceneManager->update(elapsed, event);
+    }
+  }
+
+  void Engine::shutdown() {
+    Log::log("Engine shutdown with success");
+    this->isRunning = false;
+  }
 }

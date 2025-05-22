@@ -1,18 +1,26 @@
 #pragma once
+#include <memory>
+#include <SFML/Graphics.hpp>
+#include "sceneManager.hpp"
 #include "log.hpp"
 
-class Engine {
-private:
-  Log *log;
+namespace engine {
+  class Engine {
+    private:
+    bool isRunning = false;
 
-public:
-  // Init
-  Engine();
+    public:
+    std::shared_ptr<SceneManager> sceneManager;
 
-  // Functions
-  void init();
+    public:
+    // Init
+    Engine();
 
-  void run();
+    // Functions
+    void init();
 
-  void shutdown();
-};
+    void run();
+
+    void shutdown();
+  };
+}

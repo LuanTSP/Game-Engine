@@ -7,20 +7,20 @@
 
 class SceneManager {
   private:
-  std::unordered_map<std::string, std::shared_ptr<Scene>> scenes;
+  std::unordered_map<std::string, std::shared_ptr<engine::Scene>> scenes;
   std::string active = ""; // name of the active scene
   bool running = true;
   
   public:
   SceneManager();
 
-  void addScene(const char * name, std::shared_ptr<Scene> scene);
+  void addScene(const char * name, std::shared_ptr<engine::Scene> scene);
 
-  void addScene(std::string& name, std::shared_ptr<Scene> scene);
+  void addScene(std::string& name, std::shared_ptr<engine::Scene> scene);
 
   void removeScene(std::string& name);
 
-  std::shared_ptr<Scene> getScene(std::string name);
+  std::shared_ptr<engine::Scene> getScene(std::string name);
 
   void update(float elapsed, sf::Event &event);
 

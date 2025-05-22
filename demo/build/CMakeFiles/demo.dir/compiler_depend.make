@@ -3,6 +3,7 @@
 
 CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo/main.cpp \
   /home/luantsp/Documents/Projetos/GameEngine/include/components.hpp \
+  /home/luantsp/Documents/Projetos/GameEngine/include/engine.hpp \
   /home/luantsp/Documents/Projetos/GameEngine/include/entityManager.hpp \
   /home/luantsp/Documents/Projetos/GameEngine/include/log.hpp \
   /home/luantsp/Documents/Projetos/GameEngine/include/resourceManager.hpp \
@@ -114,7 +115,6 @@ CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo
   /usr/include/c++/14/bits/basic_string.tcc \
   /usr/include/c++/14/bits/char_traits.h \
   /usr/include/c++/14/bits/charconv.h \
-  /usr/include/c++/14/bits/chrono.h \
   /usr/include/c++/14/bits/codecvt.h \
   /usr/include/c++/14/bits/concept_check.h \
   /usr/include/c++/14/bits/cpp_type_traits.h \
@@ -125,10 +125,6 @@ CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo
   /usr/include/c++/14/bits/exception.h \
   /usr/include/c++/14/bits/exception_defines.h \
   /usr/include/c++/14/bits/exception_ptr.h \
-  /usr/include/c++/14/bits/fs_dir.h \
-  /usr/include/c++/14/bits/fs_fwd.h \
-  /usr/include/c++/14/bits/fs_ops.h \
-  /usr/include/c++/14/bits/fs_path.h \
   /usr/include/c++/14/bits/functexcept.h \
   /usr/include/c++/14/bits/functional_hash.h \
   /usr/include/c++/14/bits/hash_bytes.h \
@@ -153,18 +149,15 @@ CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo
   /usr/include/c++/14/bits/node_handle.h \
   /usr/include/c++/14/bits/ostream.tcc \
   /usr/include/c++/14/bits/ostream_insert.h \
-  /usr/include/c++/14/bits/parse_numbers.h \
   /usr/include/c++/14/bits/postypes.h \
   /usr/include/c++/14/bits/predefined_ops.h \
   /usr/include/c++/14/bits/ptr_traits.h \
-  /usr/include/c++/14/bits/quoted_string.h \
   /usr/include/c++/14/bits/range_access.h \
   /usr/include/c++/14/bits/refwrap.h \
   /usr/include/c++/14/bits/requires_hosted.h \
   /usr/include/c++/14/bits/shared_ptr.h \
   /usr/include/c++/14/bits/shared_ptr_atomic.h \
   /usr/include/c++/14/bits/shared_ptr_base.h \
-  /usr/include/c++/14/bits/sstream.tcc \
   /usr/include/c++/14/bits/std_abs.h \
   /usr/include/c++/14/bits/std_function.h \
   /usr/include/c++/14/bits/stl_algo.h \
@@ -200,11 +193,9 @@ CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo
   /usr/include/c++/14/cctype \
   /usr/include/c++/14/cerrno \
   /usr/include/c++/14/clocale \
-  /usr/include/c++/14/codecvt \
   /usr/include/c++/14/compare \
   /usr/include/c++/14/concepts \
   /usr/include/c++/14/cstddef \
-  /usr/include/c++/14/cstdint \
   /usr/include/c++/14/cstdio \
   /usr/include/c++/14/cstdlib \
   /usr/include/c++/14/ctime \
@@ -220,16 +211,13 @@ CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo
   /usr/include/c++/14/ext/numeric_traits.h \
   /usr/include/c++/14/ext/string_conversions.h \
   /usr/include/c++/14/ext/type_traits.h \
-  /usr/include/c++/14/filesystem \
   /usr/include/c++/14/functional \
   /usr/include/c++/14/initializer_list \
-  /usr/include/c++/14/iomanip \
   /usr/include/c++/14/ios \
   /usr/include/c++/14/iosfwd \
   /usr/include/c++/14/iostream \
   /usr/include/c++/14/istream \
   /usr/include/c++/14/iterator \
-  /usr/include/c++/14/limits \
   /usr/include/c++/14/locale \
   /usr/include/c++/14/map \
   /usr/include/c++/14/memory \
@@ -239,8 +227,6 @@ CMakeFiles/demo.dir/main.cpp.o: /home/luantsp/Documents/Projetos/GameEngine/demo
   /usr/include/c++/14/pstl/glue_algorithm_defs.h \
   /usr/include/c++/14/pstl/glue_memory_defs.h \
   /usr/include/c++/14/pstl/pstl_config.h \
-  /usr/include/c++/14/ratio \
-  /usr/include/c++/14/sstream \
   /usr/include/c++/14/stdexcept \
   /usr/include/c++/14/streambuf \
   /usr/include/c++/14/string \
@@ -472,7 +458,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o: /home/luantsp/Documents/Projetos/Ga
   /usr/include/c++/14/bits/basic_string.tcc \
   /usr/include/c++/14/bits/char_traits.h \
   /usr/include/c++/14/bits/charconv.h \
-  /usr/include/c++/14/bits/chrono.h \
   /usr/include/c++/14/bits/codecvt.h \
   /usr/include/c++/14/bits/concept_check.h \
   /usr/include/c++/14/bits/cpp_type_traits.h \
@@ -483,10 +468,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o: /home/luantsp/Documents/Projetos/Ga
   /usr/include/c++/14/bits/exception.h \
   /usr/include/c++/14/bits/exception_defines.h \
   /usr/include/c++/14/bits/exception_ptr.h \
-  /usr/include/c++/14/bits/fs_dir.h \
-  /usr/include/c++/14/bits/fs_fwd.h \
-  /usr/include/c++/14/bits/fs_ops.h \
-  /usr/include/c++/14/bits/fs_path.h \
   /usr/include/c++/14/bits/functexcept.h \
   /usr/include/c++/14/bits/functional_hash.h \
   /usr/include/c++/14/bits/hash_bytes.h \
@@ -511,18 +492,15 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o: /home/luantsp/Documents/Projetos/Ga
   /usr/include/c++/14/bits/node_handle.h \
   /usr/include/c++/14/bits/ostream.tcc \
   /usr/include/c++/14/bits/ostream_insert.h \
-  /usr/include/c++/14/bits/parse_numbers.h \
   /usr/include/c++/14/bits/postypes.h \
   /usr/include/c++/14/bits/predefined_ops.h \
   /usr/include/c++/14/bits/ptr_traits.h \
-  /usr/include/c++/14/bits/quoted_string.h \
   /usr/include/c++/14/bits/range_access.h \
   /usr/include/c++/14/bits/refwrap.h \
   /usr/include/c++/14/bits/requires_hosted.h \
   /usr/include/c++/14/bits/shared_ptr.h \
   /usr/include/c++/14/bits/shared_ptr_atomic.h \
   /usr/include/c++/14/bits/shared_ptr_base.h \
-  /usr/include/c++/14/bits/sstream.tcc \
   /usr/include/c++/14/bits/std_abs.h \
   /usr/include/c++/14/bits/std_function.h \
   /usr/include/c++/14/bits/stl_algo.h \
@@ -558,11 +536,9 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o: /home/luantsp/Documents/Projetos/Ga
   /usr/include/c++/14/cctype \
   /usr/include/c++/14/cerrno \
   /usr/include/c++/14/clocale \
-  /usr/include/c++/14/codecvt \
   /usr/include/c++/14/compare \
   /usr/include/c++/14/concepts \
   /usr/include/c++/14/cstddef \
-  /usr/include/c++/14/cstdint \
   /usr/include/c++/14/cstdio \
   /usr/include/c++/14/cstdlib \
   /usr/include/c++/14/ctime \
@@ -578,16 +554,13 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o: /home/luantsp/Documents/Projetos/Ga
   /usr/include/c++/14/ext/numeric_traits.h \
   /usr/include/c++/14/ext/string_conversions.h \
   /usr/include/c++/14/ext/type_traits.h \
-  /usr/include/c++/14/filesystem \
   /usr/include/c++/14/functional \
   /usr/include/c++/14/initializer_list \
-  /usr/include/c++/14/iomanip \
   /usr/include/c++/14/ios \
   /usr/include/c++/14/iosfwd \
   /usr/include/c++/14/iostream \
   /usr/include/c++/14/istream \
   /usr/include/c++/14/iterator \
-  /usr/include/c++/14/limits \
   /usr/include/c++/14/locale \
   /usr/include/c++/14/map \
   /usr/include/c++/14/memory \
@@ -597,8 +570,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o: /home/luantsp/Documents/Projetos/Ga
   /usr/include/c++/14/pstl/glue_algorithm_defs.h \
   /usr/include/c++/14/pstl/glue_memory_defs.h \
   /usr/include/c++/14/pstl/pstl_config.h \
-  /usr/include/c++/14/ratio \
-  /usr/include/c++/14/sstream \
   /usr/include/c++/14/stdexcept \
   /usr/include/c++/14/streambuf \
   /usr/include/c++/14/string \
@@ -1170,9 +1141,13 @@ CMakeFiles/demo.dir/main.cpp.o:
 
 /lib/x86_64-linux-gnu/libfreetype.so.6:
 
+/lib/x86_64-linux-gnu/libcap.so.2:
+
 /usr/lib/i386-linux-gnu/libXau.so.6:
 
 /lib/x86_64-linux-gnu/libbrotlicommon.so.1:
+
+/lib/x86_64-linux-gnu/libXfixes.so.3:
 
 /usr/lib/i386-linux-gnu/libbz2.so.1.0:
 
@@ -1286,6 +1261,8 @@ CMakeFiles/demo.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
 
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
@@ -1318,35 +1295,17 @@ CMakeFiles/demo.dir/main.cpp.o:
 
 /usr/include/x86_64-linux-gnu/asm/posix_types.h:
 
-/usr/include/wchar.h:
+/usr/include/x86_64-linux-gnu/asm/errno.h:
 
-/lib/x86_64-linux-gnu/libXext.so.6:
+/usr/include/c++/14/bits/cxxabi_forced.h:
 
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+/usr/lib/i386-linux-gnu/libXdmcp.so.6:
 
-/usr/include/time.h:
-
-/lib/x86_64-linux-gnu/libmvec.so.1:
-
-/usr/include/stdlib.h:
-
-/usr/include/stdio.h:
-
-/usr/include/stdc-predef.h:
+/usr/include/c++/14/bits/functexcept.h:
 
 /lib/x86_64-linux-gnu/libz.so.1:
 
 /usr/include/pthread.h:
-
-/usr/include/locale.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/c++/14/bits/fs_ops.h:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/usr/include/c++/14/bits/cxxabi_forced.h:
 
 /usr/lib/i386-linux-gnu/libcap.so.2:
 
@@ -1368,12 +1327,6 @@ CMakeFiles/demo.dir/main.cpp.o:
 
 /usr/include/SFML/Graphics/BlendMode.hpp:
 
-/usr/include/wctype.h:
-
-/usr/include/sched.h:
-
-/usr/include/c++/14/filesystem:
-
 CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/Graphics/RenderWindow.hpp:
@@ -1387,6 +1340,8 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/SFML/Window/Cursor.hpp:
 
 /usr/include/asm-generic/posix_types.h:
+
+/usr/include/stdc-predef.h:
 
 /usr/include/SFML/System/Export.hpp:
 
@@ -1414,6 +1369,8 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/System/ThreadLocalPtr.inl:
 
+/usr/include/linux/errno.h:
+
 /usr/include/c++/14/bits/allocator.h:
 
 /lib/x86_64-linux-gnu/libbrotlidec.so.1:
@@ -1425,10 +1382,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
 /usr/include/SFML/Window/Mouse.hpp:
-
-/usr/include/linux/types.h:
-
-/usr/include/SFML/Window/Keyboard.hpp:
 
 /usr/include/c++/14/bits/stl_construct.h:
 
@@ -1458,8 +1411,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/Window/Event.hpp:
 
-/usr/include/c++/14/bits/fs_fwd.h:
-
 /usr/include/c++/14/bits/atomic_lockfree_defines.h:
 
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
@@ -1468,19 +1419,17 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/Window/ContextSettings.hpp:
 
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/SFML/Window/Context.hpp:
-
 /usr/include/SFML/Window/Clipboard.hpp:
 
 /usr/include/SFML/System/Utf.inl:
 
+/usr/include/SFML/System/Vector2.inl:
+
+/usr/include/SFML/System/Thread.inl:
+
 /usr/lib/x86_64-linux-gnu/libsfml-graphics.so:
 
 /usr/include/c++/14/bits/exception_ptr.h:
-
-/usr/include/c++/14/bits/fs_dir.h:
 
 /usr/include/c++/14/bits/exception.h:
 
@@ -1526,9 +1475,15 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/Graphics/Glsl.inl:
 
-/usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
-/usr/include/c++/14/bits/chrono.h:
+/usr/include/SFML/Window/Context.hpp:
+
+/usr/include/c++/14/bits/stl_algo.h:
+
+/home/luantsp/Documents/Projetos/GameEngine/include/engine.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libgcc_s.so:
 
 /usr/include/c++/14/bit:
 
@@ -1537,6 +1492,26 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/stdint.h:
 
 /usr/include/endian.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so:
+
+/usr/include/SFML/Graphics/Rect.hpp:
+
+/usr/include/c++/14/algorithm:
+
+/usr/include/c++/14/istream:
+
+/lib/x86_64-linux-gnu/libmvec.so.1:
+
+/usr/include/stdlib.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/SFML/Graphics/Transform.hpp:
+
+/usr/include/c++/14/backward/auto_ptr.h:
+
+/usr/include/SFML/Graphics/ConvexShape.hpp:
 
 /usr/include/c++/14/bits/allocated_ptr.h:
 
@@ -1590,37 +1565,27 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/asm-generic/errno.h:
 
-/usr/include/SFML/System/Vector2.inl:
-
-/usr/include/SFML/System/Thread.inl:
+/usr/include/locale.h:
 
 /home/luantsp/Documents/Projetos/GameEngine/include/system.hpp:
 
 /usr/include/c++/14/bits/algorithmfwd.h:
 
-/usr/include/SFML/Graphics/Color.hpp:
-
 /usr/include/SFML/System.hpp:
+
+/usr/include/SFML/Graphics/Color.hpp:
 
 /usr/include/c++/14/bits/istream.tcc:
 
 /usr/include/SFML/Graphics/Glsl.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/c++/14/bits/uniform_int_dist.h:
-
-/usr/include/SFML/Graphics/RectangleShape.hpp:
-
-/usr/include/SFML/Graphics.hpp:
-
-/usr/include/SFML/Graphics/Glyph.hpp:
-
 /usr/include/c++/14/functional:
 
 /home/luantsp/Documents/Projetos/GameEngine/demo/src/scenes/scene2.cpp:
+
+/usr/include/SFML/Graphics/Glyph.hpp:
+
+/usr/include/SFML/Graphics.hpp:
 
 /usr/include/c++/14/bits/stl_uninitialized.h:
 
@@ -1632,21 +1597,13 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/Graphics/Shader.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/14/libstdc++.so:
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/SFML/Graphics/Rect.hpp:
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
-/usr/include/c++/14/algorithm:
+/usr/include/c++/14/bits/uniform_int_dist.h:
 
-/usr/include/c++/14/istream:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/SFML/Graphics/Transform.hpp:
-
-/usr/include/c++/14/backward/auto_ptr.h:
-
-/usr/include/SFML/Graphics/ConvexShape.hpp:
+/usr/include/SFML/Graphics/RectangleShape.hpp:
 
 /usr/include/SFML/System/Err.hpp:
 
@@ -1670,9 +1627,11 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/Graphics/RenderStates.hpp:
 
-/usr/include/linux/posix_types.h:
+/usr/include/wchar.h:
 
-/usr/include/SFML/Graphics/Text.hpp:
+/usr/lib/i386-linux-gnu/libX11.so.6:
+
+/usr/include/c++/14/bits/functional_hash.h:
 
 /usr/include/SFML/System/Utf.hpp:
 
@@ -1726,29 +1685,11 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/SFML/System/Lock.hpp:
 
-/usr/include/c++/14/bits/quoted_string.h:
-
 /usr/include/SFML/System/Mutex.hpp:
 
 /usr/include/c++/14/tuple:
 
 /usr/include/SFML/System/NonCopyable.hpp:
-
-/lib/x86_64-linux-gnu/libcap.so.2:
-
-/usr/include/c++/14/bits/fs_path.h:
-
-/usr/lib/i386-linux-gnu/libXdmcp.so.6:
-
-/usr/include/c++/14/bits/functexcept.h:
-
-/usr/lib/i386-linux-gnu/libX11.so.6:
-
-/usr/include/c++/14/iomanip:
-
-/usr/include/c++/14/limits:
-
-/usr/include/c++/14/bits/functional_hash.h:
 
 /usr/include/c++/14/bits/invoke.h:
 
@@ -1758,11 +1699,15 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/c++/14/bits/locale_classes.h:
 
-/usr/include/SFML/System/String.hpp:
-
 /usr/include/libintl.h:
 
+/usr/include/SFML/System/String.hpp:
+
 /usr/include/c++/14/bits/locale_classes.tcc:
+
+/usr/include/SFML/Graphics/Text.hpp:
+
+/usr/include/linux/posix_types.h:
 
 /usr/include/c++/14/bits/basic_string.h:
 
@@ -1785,6 +1730,8 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/c++/14/bits/locale_facets.tcc:
+
+/usr/include/stdio.h:
 
 /usr/include/SFML/System/ThreadLocal.hpp:
 
@@ -1815,8 +1762,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/c++/14/bits/shared_ptr.h:
 
 /usr/include/c++/14/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/14/bits/sstream.tcc:
 
 /usr/include/linux/sched/types.h:
 
@@ -1854,10 +1799,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/c++/14/bits/stl_raw_storage_iter.h:
 
-/usr/include/linux/stddef.h:
-
-/usr/include/c++/14/bits/stl_tempbuf.h:
-
 /usr/include/c++/14/bits/stl_tree.h:
 
 /usr/include/c++/14/bits/stream_iterator.h:
@@ -1884,13 +1825,9 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/c++/14/cerrno:
 
-/usr/include/c++/14/codecvt:
-
 /usr/lib/i386-linux-gnu/libbrotlicommon.so.1:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/c++/14/bits/parse_numbers.h:
 
 /usr/include/c++/14/ostream:
 
@@ -1899,10 +1836,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/SFML/System/Vector3.inl:
 
 /usr/include/c++/14/concepts:
-
-/lib/x86_64-linux-gnu/libXfixes.so.3:
-
-/usr/include/c++/14/cstdint:
 
 /usr/include/c++/14/bits/utility.h:
 
@@ -1935,6 +1868,10 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/c++/14/ext/aligned_buffer.h:
 
 /usr/include/c++/14/new:
+
+/usr/include/c++/14/bits/stl_tempbuf.h:
+
+/usr/include/linux/stddef.h:
 
 /usr/include/c++/14/ext/alloc_traits.h:
 
@@ -1978,14 +1915,6 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 
 /usr/include/c++/14/pstl/glue_algorithm_defs.h:
 
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
-/usr/include/c++/14/ratio:
-
-/usr/include/c++/14/bits/stl_algo.h:
-
-/usr/include/c++/14/sstream:
-
 /usr/include/c++/14/string:
 
 /usr/include/c++/14/type_traits:
@@ -1997,3 +1926,17 @@ CMakeFiles/demo.dir/src/scenes/scene1.cpp.o:
 /usr/include/ctype.h:
 
 /usr/include/features-time64.h:
+
+/usr/include/SFML/Window/Keyboard.hpp:
+
+/usr/include/linux/types.h:
+
+/usr/include/wctype.h:
+
+/usr/include/sched.h:
+
+/lib/x86_64-linux-gnu/libXext.so.6:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/time.h:

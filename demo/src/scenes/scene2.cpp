@@ -1,7 +1,7 @@
 #include "../../../include/scene.hpp"
 #include "../../../include/renderSystem.hpp"
 
-class SceneOrc : public Scene {
+class SceneOrc : public engine::Scene {
   public:
   using Scene::Scene;
 

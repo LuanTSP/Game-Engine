@@ -12,71 +12,73 @@ struct EventTrigger
   std::function<void(sf::Event &)> action;
 };
 
-class Scene
-{
-private:
-  bool running = false;
-  std::vector<std::shared_ptr<System>> systems;
-  std::string sceneToChange= "";
-
-public:
-  std::vector<EventTrigger> triggers;
-  std::shared_ptr<sf::RenderWindow> window = nullptr;
-  std::shared_ptr<EntityManager> entityManager = nullptr;
-  std::shared_ptr<ResourceManager> resourceManager = nullptr;
-
-public:
-  Scene(std::shared_ptr<sf::RenderWindow> &window);
-
-  ~Scene() = default;
-
-  virtual void update(float elapsed, sf::Event &event)
+namespace engine {
+  class Scene
   {
-    this->window->clear();
+  private:
+    bool running = false;
+    std::vector<std::shared_ptr<System>> systems;
+    std::string sceneToChange= "";
 
-    // Update events
-    while (this->window->pollEvent(event))
+  public:
+    std::vector<EventTrigger> triggers;
+    std::shared_ptr<sf::RenderWindow> window = nullptr;
+    std::shared_ptr<EntityManager> entityManager = nullptr;
+    std::shared_ptr<ResourceManager> resourceManager = nullptr;
+
+  public:
+    Scene(std::shared_ptr<sf::RenderWindow> &window);
+
+    ~Scene() = default;
+
+    virtual void update(float elapsed, sf::Event &event)
     {
-      for (const auto &trigger : this->triggers)
+      this->window->clear();
+
+      // Update events
+      while (this->window->pollEvent(event))
       {
-        if (trigger.condition(event))
+        for (const auto &trigger : this->triggers)
         {
-          trigger.action(event);
+          if (trigger.condition(event))
+          {
+            trigger.action(event);
+          }
         }
       }
+
+      // Update entity manager
+      this->entityManager->update();
+
+      // Update all systems
+      for (auto &system : this->systems)
+      {
+        system->update(elapsed);
+      }
+
+      this->window->display();
     }
 
-    // Update entity manager
-    this->entityManager->update();
+    virtual void init() = 0;
 
-    // Update all systems
-    for (auto &system : this->systems)
+    bool isRunning();
+
+    void setRunning(bool running);
+
+    // System Functionality
+    template <typename T>
+    void addSystem()
     {
-      system->update(elapsed);
+      this->systems.push_back(std::make_shared<T>(this->window, this->entityManager));
     }
 
-    this->window->display();
-  }
+    // Trigger
+    void attachTrigger(std::function<bool(sf::Event &)> condition, std::function<void(sf::Event &)> action);
 
-  virtual void init() = 0;
+    std::string getSceneToChange();
 
-  bool isRunning();
+    void setSceneToChange(std::string name);
 
-  void setRunning(bool running);
-
-  // System Functionality
-  template <typename T>
-  void addSystem()
-  {
-    this->systems.push_back(std::make_shared<T>(this->window, this->entityManager));
-  }
-
-  // Trigger
-  void attachTrigger(std::function<bool(sf::Event &)> condition, std::function<void(sf::Event &)> action);
-
-  std::string getSceneToChange();
-
-  void setSceneToChange(std::string name);
-
-  void setSceneToChange(const char * name);
-};
+    void setSceneToChange(const char * name);
+  };
+}

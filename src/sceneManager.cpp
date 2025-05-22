@@ -3,14 +3,14 @@
 
 SceneManager::SceneManager() {}
 
-void SceneManager::addScene(const char * name, std::shared_ptr<Scene> scene) {
+void SceneManager::addScene(const char * name, std::shared_ptr<engine::Scene> scene) {
+  scene->init(); // init scene as soon as its addded
   std::string strName = name;
-  scene->init();
   this->scenes[strName] = scene;
 }
 
-void SceneManager::addScene(std::string& name, std::shared_ptr<Scene> scene) {
-  scene->init();
+void SceneManager::addScene(std::string& name, std::shared_ptr<engine::Scene> scene) {
+  // scene->init();
   this->scenes[name] = scene;
 }
 
@@ -21,7 +21,7 @@ void SceneManager::removeScene(std::string& name) {
   }
 }
 
-std::shared_ptr<Scene> SceneManager::getScene(std::string name) {
+std::shared_ptr<engine::Scene> SceneManager::getScene(std::string name) {
   if (this->scenes.find(name) != this->scenes.end()) {
     return this->scenes[name];
   }

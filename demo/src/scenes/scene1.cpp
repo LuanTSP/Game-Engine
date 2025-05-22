@@ -2,7 +2,7 @@
 #include "../../../include/renderSystem.hpp"
 
 
-class SceneSoldier : public Scene {
+class SceneSoldier : public engine::Scene {
   public:
   using Scene::Scene;
 
